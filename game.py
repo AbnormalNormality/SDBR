@@ -79,7 +79,7 @@ class Player(Entity):
         self.handSize: int = 4
 
     # noinspection PyUnusedLocal
-    def play_card(self, index_in_hand: int, targets: [Entity]):
+    def play_card(self, index_in_hand: int, targets: list[Entity]):
         card = self.hand[index_in_hand]
 
         for t in card.triggers:
@@ -165,7 +165,7 @@ def main():
 
         system("cls||clear")
 
-        print(f"You play {player.hand[card]} against {", ".join([e.name for e in targets])}")
+        print(f"You play '{player.hand[card].name}' against {", ".join([f"'{e.name}'" for e in targets])}")
         player.play_card(card, targets)
 
         print("\n", end="")
